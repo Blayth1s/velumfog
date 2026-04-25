@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>VELUMFOG</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #E6E9F2;
+}
+
+/* NAV */
+.topnav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: rgba(10,10,10,0.9);
+  border-bottom: 1px solid #222;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.topnav .logo {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.topnav .links a {
+  margin-left: 15px;
+  color: #E6E9F2;
+  text-decoration: none;
+}
+
+.topnav .links a:hover {
+  color: cyan;
+}
+
+/* BLOCK */
+.block {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+/* UI CARD (ЕДИНЫЙ КОМПОНЕНТ) */
+.ui-card {
+  border: 1px solid #333;
+  padding: 15px;
+  background: #151515;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.ui-card:hover {
+  border-color: cyan;
+  transform: translateY(-3px);
+}
+
+/* HERO */
+.hero {
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* PROJECT */
+#project.block { text-align: left; }
+
+#project .project-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+#project .project-text {
+  flex: 1;
+}
+
+#project .project-side {
+  flex-shrink: 0;
+}
+
+.steam-btn {
+  display: inline-block;
+  background: #1b2838;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #2a475e;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.steam-btn:hover {
+  background: #2a475e;
+  transform: translateY(-2px);
+}
+
+/* DEVLOG */
+#devlog.block { text-align: left; }
+
+.devlog-wrap {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.devlog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 420px;
+  overflow: hidden;
+}
+
+.devlog-view img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.devlog-list .ui-card {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.devlog-list .active {
+  border-color: cyan;
+  opacity: 1;
+}
+
+/* INVESTORS */
+#investors.block { text-align: left; }
+
+.investor-wrap {
+  display: flex;
+  gap: 20px;
+}
+
+.investor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 220px;
+  cursor: pointer;
+}
+
+.investor-view {
+  flex: 1;
+}
+
+/* TEAM */
+.team-section { text-align: left; }
+
+.team-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.team-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.team-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.team-slider .ui-card {
+  min-width: 220px;
+  text-align: center;
+}
+
+.arrow {
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* SOCIAL */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+a { color: cyan; text-decoration: none; }
+
+img { width: 100%; border-radius: 10px; }
+
+</style>
+</head>
+
+<body>
+
+<nav class="topnav">
+  <div class="logo">VELUMFOG</div>
+  <div class="links">
+    <a href="#project">Проект</a>
+    <a href="#devlog">Devlog</a>
+    <a href="#investors">Инвесторы</a>
+    <a href="#team">Команда</a>
+  </div>
+</nav>
+
+<section class="block hero">
+  <img class="banner" src="images/banner.jpg">
+</section>
+
+<!-- PROJECT -->
+<section class="block" id="project">
+  <div class="project-container">
+    <div class="project-text">
+      <h2>Catharsis</h2>
+      <p>
+        Каникулы в колледже «Виллоу-Крик» должны были стать временем отдыха. Для студента-журналиста Сэма, друга-программиста Теодора, и студентки факультета психологии Джесс, они превращаются в расследование, которое изменит всё.
+
+Пропадает Британи — однокурсница и предмет симпатии Тео. Все списывают это на личные проблемы. Но Сэм чувствует неладное. Команда начинает копать и обнаруживает, что Британи — не единственная, кто бесследно исчез.
+
+Внезапные отключения связи, странные сигналы в сети колледжа, необъяснимые помехи на аудиозаписях... Кто-то очень влиятельный следит за каждым их шагом и делает всё, чтобы правда не всплыла.
+        <br><br>
+      </p>
+    </div>
+
+    <div class="project-side">
+      <a class="steam-btn" href="https://store.steampowered.com/app/0/" target="_blank">
+        Steam
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEVLOG -->
+<section class="block" id="devlog">
+<h2>Devlog</h2>
+
+<div class="devlog-wrap">
+  <div class="devlog-list" id="devList"></div>
+
+  <div class="devlog-view ui-card">
+    <img id="devImg" src="">
+    <p id="devText"></p>
+  </div>
+</div>
+</section>
+
+<!-- INVESTORS -->
+<section class="block" id="investors">
+<h2>Для инвесторов</h2>
+
+<div class="investor-wrap">
+  <div class="investor-list">
+    <div class="ui-card" onclick="showInvestor(0)">Об игре</div>
+    <div class="ui-card" onclick="showInvestor(1)">Механики</div>
+    <div class="ui-card" onclick="showInvestor(2)">Сроки</div>
+    <div class="ui-card" onclick="showInvestor(3)">Аудитория</div>
+    <div class="ui-card" onclick="showInvestor(4)">О команде</div>
+  </div>
+
+  <div class="investor-view ui-card">
+    <h3 id="invTitle"></h3>
+    <p id="invText"></p>
+  </div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section class="block team-section" id="team">
+<h2>Команда</h2>
+
+<div class="team-wrapper">
+<button class="arrow" onclick="scrollTeam(-1)">‹</button>
+
+<div class="team-slider" id="teamSlider">
+
+<div class="ui-card">
+<img src="images/team/1.jpg">
+<h3>Мухаметшин Артур</h3>
+<p>Owner</p>
+<p>Опыт: 2 года Teh.GD</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/2.jpg">
+<h3>Турушев Даниил</h3>
+<p>Lead Narrative Designer</p>
+<p>Опыт: 10 лет</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/3.jpg">
+<h3>Чаиркин Михаил</h3>
+<p>UE5 Developer</p>
+<p>Опыт: 3 года</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/4.jpg">
+<h3>Сергей</h3>
+<p>UE5 Developer</p>
+<p>Опыт: 2 года</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/5.jpg">
+<h3>Акимов Даниил</h3>
+<p>Game Designer</p>
+<p>Опыт: 1 год</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/6.jpg">
+<h3>Сергей</h3>
+<p>Character Animator</p>
+<p>Опыт: 2 года</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/7.jpg">
+<h3>Бутаков Максим</h3>
+<p>Composer</p>
+<p>Опыт: 8 лет</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/8.jpg">
+<h3>Владислав</h3>
+<p>Narrative Designer</p>
+<p>Опыт: 4 года</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/9.jpg">
+<h3>Руслан</h3>
+<p>Character Animator</p>
+<p>Опыт: 2 года</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/10.jpg">
+<h3>Karl Collins-Marsh</h3>
+<p>3D Character Artist</p>
+<p>Опыт: 2 года</p>
+</div>
+
+<div class="ui-card">
+<img src="images/team/11.jpg">
+<h3>Альберт</h3>
+<p>2D Concept Artist</p>
+<p>Опыт: 2 года</p>
+</div>
+
+</div>
+
+<button class="arrow" onclick="scrollTeam(1)">›</button>
+</div>
+</section>
+
+<script>
+/* DEVLOG */
+const devlog = [
+{img:"images/devlog/5.jpg", text:"Концепты по нашим персонажам"},
+{img:"images/devlog/4.jpg", text:"Мы добавили в игру телефон. Теперь вы можете сидеть в телефоне, пока сидите за ПК"},
+{img:"images/devlog/3.jpg", text:"Отличный вид на город с этого холма"},
+{img:"images/devlog/2.jpg", text:"В городе появилась закусочная, референсом которой стали классические The Diner Америки"},
+{img:"images/devlog/1.jpg", text:"Кадр из комнаты главного героя"}
+];
+
+let startIndex = 0;
+const list = document.getElementById("devList");
+
+function render(){
+  list.innerHTML = "";
+  devlog.slice(startIndex, startIndex+3).forEach((d,i)=>{
+    const el = document.createElement("div");
+    el.className="ui-card";
+    el.innerText="Блок "+(startIndex+i+1);
+    el.onclick=()=>show(startIndex+i);
+    list.appendChild(el);
+  });
+}
+
+function show(i){
+  document.getElementById("devImg").src=devlog[i].img;
+  document.getElementById("devText").innerText=devlog[i].text;
+}
+
+list.addEventListener("wheel",(e)=>{
+  e.preventDefault();
+  startIndex = Math.min(Math.max(startIndex + (e.deltaY>0?1:-1),0),2);
+  render();
+});
+
+render(0); show(0);
+
+/* INVESTORS */
+const inv=[
+["Об игре","Catharsis — атмосферный нарративный детектив в сеттинге колледжа. В отличии от других детективов мы даём игроку возможность влиять на историю. Выборы, которые действительно имеют последствия."],
+["Механики","Детально проработанный нелинейный сюжет. Взаимоотношение с персонажами влияет на историю, У действий есть последствия. Игрок может общаться с любыми NPC, взаимодействовать со множеством объектов"],
+["Сроки","Релиз демо версии запланирован на середину июля. Полноценная игра на 30-40 мин. геймплея. Представление ключевых механик и нарративного подхода. Релиз основной игры — 2027 год."],
+["Аудитория","Игроки, ориентированные на сюжет и персонажей. Фанаты серии Life is Strange, Dispatch, Detroit: Become Human и прочих подобных игр."],
+["О команде","VELUMFOG — независимая игровая студия, сосредоточенная на создании атмосферных сюжетных проектов. Мы делаем упор на эмоциональное повествование, проработку персонажей и выборы, влияющие на историю. Наша цель — создавать игры, которые запоминаются не механиками, а ощущениями и переживаниями."]
+];
+
+function showInvestor(i){
+  invTitle.innerText=inv[i][0];
+  invText.innerText=inv[i][1];
+}
+
+/* TEAM */
+function scrollTeam(d){
+  document.getElementById("teamSlider").scrollBy({left:d*260,behavior:"smooth"});
+}
+</script>
+
+<section class="block" id="jobs">
+  <h2>Вакансии</h2>
+
+  <div class="ui-card">
+    <p>Мы открыты к новым участникам команды.</p>
+    <a href="https://t.me/scarecrowhr" target="_blank">
+      https://t.me/scarecrowhr
+    </a>
+  </div>
+
+</section>
+
+<!-- WISHLIST -->
+<section class="block" id="wishlist">
+
+  <!-- Steam wishlist -->
+  <a class="wishlist-card"
+     href="https://store.steampowered.com/app/0/"
+     target="_blank">
+
+    <div class="wishlist-content">
+      <h2>Поддержать проект</h2>
+      <p>Добавить Catharsis в список желаемого в Steam</p>
+    </div>
+
+    <div class="wishlist-action">›</div>
+
+  </a>
+
+  <!-- Buttons -->
+  <div class="wishlist-buttons">
+
+    <a class="steam-btn"
+       href="https://store.steampowered.com/app/0/"
+       target="_blank">
+      Steam
+    </a>
+
+    <a class="donate-btn"
+       href="https://boosty.to/scarecrowstudio"
+       target="_blank">
+      Донат
+    </a>
+
+  </div>
+
+</section>
+
+<section class="block" id="social">
+  <h2>Соцсети</h2>
+
+  <div class="social-grid">
+
+    <a class="ui-card" href="https://t.me/scarecrowstudio" target="_blank">Telegram</a>
+    <a class="ui-card" href="https://vk.com/scarecrowstudio" target="_blank">VK</a>
+    <a class="ui-card" href="https://www.youtube.com/@scarecrowstudiogames" target="_blank">YouTube</a>
+    <a class="ui-card" href="https://boosty.to/scarecrowstudio" target="_blank">Boosty</a>
+    <a class="ui-card" href="https://dtf.ru/id1614687" target="_blank">DTF</a>
+    <a class="ui-card" href="https://www.tiktok.com/@scarecrowstydio?_r=1&_t=ZS-91NIpfrYPqr" target="_blank">TikTok</a>
+
+  </div>
+
+</section>
+
+</body>
+</html>
