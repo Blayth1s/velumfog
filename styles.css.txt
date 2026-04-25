@@ -50,7 +50,7 @@ body {
   align-items: center;
 }
 
-#project .steam-btn {
+.steam-btn {
   display: inline-block;
   background: #1b2838;
   color: #fff;
@@ -62,7 +62,7 @@ body {
   transition: 0.2s;
 }
 
-#project .steam-btn:hover {
+.steam-btn:hover {
   background: #2a475e;
   transform: translateY(-2px);
 }
@@ -74,7 +74,7 @@ body {
     align-items: flex-start;
   }
 
-  #project .steam-btn {
+.steam-btn {
     width: 100%;
     text-align: center;
   }
@@ -110,21 +110,6 @@ body {
   justify-content: center;
   gap: 15px;
   margin-top: 15px;
-}
-
-.donate-btn {
-  padding: 14px 26px;
-  background: #ff6b00;
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 1px solid #ff6b00;
-  transition: 0.2s;
-}
-
-.donate-btn:hover {
-  background: #ff7f24;
 }
 
 /* GALLERY */
